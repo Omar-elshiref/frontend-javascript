@@ -8,5 +8,6 @@
     "allowJs": true,
     "moduleResolution": "node",
         "skipLibCheck": true
-  }
+  },
+  "include": ["**/*.ts", "__tests__", "jest.config.js"]
 }

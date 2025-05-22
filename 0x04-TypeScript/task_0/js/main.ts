@@ -1,70 +1,71 @@
-interface student {
-    firstName: string;
-    lastName: string;
-    age: number;
-    location: string;
+export interface Student {
+  firstName: string;
+  lastName: string;
+  age: number;
+  location: string;
 }
 
-const student1: student = {
+export const studentsList: Student[] = [
+  {
     firstName: "John",
     lastName: "Doe",
     age: 20,
     location: "New York"
-};
-
-const student2: student = {
+  },
+  {
     firstName: "Omar",
     lastName: "Mohamed",
     age: 29,
     location: "Cairo"
-};
+  },
+  {
+    firstName: "Ahmed",
+    lastName: "Mohamed",
+    age: 50,
+    location: "Moscow"
+  }
+];
 
-const studentsList: student[] = [student1, student2];
+export function renderStudentsTable(students: Student[]): HTMLTableElement {
+  const table = document.createElement('table');
+  const thead = document.createElement('thead');
+  const headerRow = document.createElement('tr');
+  const headers = ["First Name", "Location", "Age", "Last Name"];
 
+  headers.forEach(text => {
+    const th = document.createElement('th');
+    th.textContent = text;
+    headerRow.appendChild(th);
+  });
 
-const table = document.createElement('table');
-const header = document.createElement('thead');
-const body = document.createElement('tbody');
-const row = document.createElement('tr');
-const heading1 = document.createElement('th');
-const heading2 = document.createElement('th');
-const heading3 = document.createElement('th');
-const heading4 = document.createElement('th');
-const heading5 = document.createElement('th');
-const cell1 = document.createElement('td');
-const cell2 = document.createElement('td');
-const cell3 = document.createElement('td');
-const cell4 = document.createElement('td');
-const cell5 = document.createElement('td');
-const cell6 = document.createElement('td');
-const cell7 = document.createElement('td');
-const cell8 = document.createElement('td');
-const cell9 = document.createElement('td');
-const cell10 = document.createElement('td');    
+  thead.appendChild(headerRow);
+  table.appendChild(thead);
 
-heading1.textContent = "FirstName";
-heading2.textContent = "Location";
-heading3.textContent = "Age";
-row.appendChild(heading1);
-row.appendChild(heading2);
-row.appendChild(heading3);
-header.appendChild(row);
-table.appendChild(header);
+  const tbody = document.createElement('tbody');
 
-for (const student of studentsList) {
+  students.forEach(student => {
     const row = document.createElement('tr');
-    const cell1 = document.createElement('td');
-    const cell2 = document.createElement('td');
-    const cell3 = document.createElement('td');
 
-    cell1.textContent = student.firstName;
-    cell2.textContent = student.location;
-    cell3.textContent = student.age.toString();
-    
-    row.appendChild(cell1);
-    row.appendChild(cell2);
-    row.appendChild(cell3);
-    body.appendChild(row);
+    const firstNameCell = document.createElement('td');
+    firstNameCell.textContent = student.firstName;
+
+    const locationCell = document.createElement('td');
+    locationCell.textContent = student.location;
+
+    const ageCell = document.createElement('td');
+    ageCell.textContent = student.age.toString();
+
+    const lastNameCell = document.createElement('td');
+    lastNameCell.textContent = student.lastName;
+
+    row.appendChild(firstNameCell);
+    row.appendChild(locationCell);
+    row.appendChild(ageCell);
+    row.appendChild(lastNameCell);
+
+    tbody.appendChild(row);
+  });
+
+  table.appendChild(tbody);
+  return table;
 }
-table.appendChild(body);
-document.body.appendChild(table);
