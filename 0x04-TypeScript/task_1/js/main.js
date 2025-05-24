@@ -8,4 +8,7 @@ exports.teacher3 = {
     location: 'London',
     numberOfReports: 17,
 };
-console.log(exports.teacher3);
+var printTeacher = function (firstName, lastName) {
+    return "".concat(firstName[0], ". ").concat(lastName);
+};
+console.log(printTeacher('John', 'Doe'));

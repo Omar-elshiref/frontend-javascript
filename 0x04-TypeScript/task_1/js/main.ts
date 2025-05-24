@@ -18,6 +18,14 @@ export const teacher3: Directors = {
   location: 'London',
   numberOfReports: 17,                
 };
+// eslint-disable-next-line @typescript-eslint/class-name-casing
+export interface printTeacherFunction {
+  (firstName: string, lastName: string): string;  
+}
+
+const printTeacher: printTeacherFunction = (firstName, lastName) => {
+  return `${firstName[0]}. ${lastName}`;
+};
 
 
-console.log(teacher3);
+console.log(printTeacher('John', 'Doe'));
