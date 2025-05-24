@@ -1,71 +1,29 @@
-export interface Student {
-  firstName: string;
-  lastName: string;
-  age: number;
-  location: string;
-}
+import Cpp from './subjects/Cpp';
+import Java from './subjects/Java';
+import React from './subjects/React';
+import { Teacher } from './subjects/Teacher';
 
-export const studentsList: Student[] = [
-  {
-    firstName: "John",
-    lastName: "Doe",
-    age: 20,
-    location: "New York"
-  },
-  {
-    firstName: "Omar",
-    lastName: "Mohamed",
-    age: 29,
-    location: "Cairo"
-  },
-  {
-    firstName: "Ahmed",
-    lastName: "Mohamed",
-    age: 50,
-    location: "Moscow"
-  }
-];
+export const cpp = new Cpp();
+export const java = new Java();
+export const react = new React();
 
-export function renderStudentsTable(students: Student[]): HTMLTableElement {
-  const table = document.createElement('table');
-  const thead = document.createElement('thead');
-  const headerRow = document.createElement('tr');
-  const headers = ["First Name", "Location", "Age", "Last Name"];
+export const cTeacher: Teacher & { experienceTeachingC?: number } = {
+    firstName: 'John',
+    lastName: 'Doe',
+    experienceTeachingC: 10,
+};
 
-  headers.forEach(text => {
-    const th = document.createElement('th');
-    th.textContent = text;
-    headerRow.appendChild(th);
-  });
+console.log('C++');
+cpp.setTeacher(cTeacher);
+console.log(cpp.getRequirements());
+console.log(cpp.getAvailableTeacher());
 
-  thead.appendChild(headerRow);
-  table.appendChild(thead);
+console.log('Java');
+java.setTeacher(cTeacher);
+console.log(java.getRequirements());
+console.log(java.getAvailableTeacher());
 
-  const tbody = document.createElement('tbody');
-
-  students.forEach(student => {
-    const row = document.createElement('tr');
-
-    const firstNameCell = document.createElement('td');
-    firstNameCell.textContent = student.firstName;
-
-    const locationCell = document.createElement('td');
-    locationCell.textContent = student.location;
-
-    const ageCell = document.createElement('td');
-    ageCell.textContent = student.age.toString();
-
-    const lastNameCell = document.createElement('td');
-    lastNameCell.textContent = student.lastName;
-
-    row.appendChild(firstNameCell);
-    row.appendChild(locationCell);
-    row.appendChild(ageCell);
-    row.appendChild(lastNameCell);
-
-    tbody.appendChild(row);
-  });
-
-  table.appendChild(tbody);
-  return table;
-}
+console.log('React');
+react.setTeacher(cTeacher);
+console.log(react.getRequirements());
+console.log(react.getAvailableTeacher());

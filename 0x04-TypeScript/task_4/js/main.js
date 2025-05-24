@@ -1,56 +1,26 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.studentsList = void 0;
-exports.renderStudentsTable = renderStudentsTable;
-exports.studentsList = [
-    {
-        firstName: "John",
-        lastName: "Doe",
-        age: 20,
-        location: "New York"
-    },
-    {
-        firstName: "Omar",
-        lastName: "Mohamed",
-        age: 29,
-        location: "Cairo"
-    },
-    {
-        firstName: "Ahmed",
-        lastName: "Mohamed",
-        age: 50,
-        location: "Moscow"
-    }
-];
-function renderStudentsTable(students) {
-    var table = document.createElement('table');
-    var thead = document.createElement('thead');
-    var headerRow = document.createElement('tr');
-    var headers = ["First Name", "Location", "Age", "Last Name"];
-    headers.forEach(function (text) {
-        var th = document.createElement('th');
-        th.textContent = text;
-        headerRow.appendChild(th);
-    });
-    thead.appendChild(headerRow);
-    table.appendChild(thead);
-    var tbody = document.createElement('tbody');
-    students.forEach(function (student) {
-        var row = document.createElement('tr');
-        var firstNameCell = document.createElement('td');
-        firstNameCell.textContent = student.firstName;
-        var locationCell = document.createElement('td');
-        locationCell.textContent = student.location;
-        var ageCell = document.createElement('td');
-        ageCell.textContent = student.age.toString();
-        var lastNameCell = document.createElement('td');
-        lastNameCell.textContent = student.lastName;
-        row.appendChild(firstNameCell);
-        row.appendChild(locationCell);
-        row.appendChild(ageCell);
-        row.appendChild(lastNameCell);
-        tbody.appendChild(row);
-    });
-    table.appendChild(tbody);
-    return table;
-}
+exports.cTeacher = exports.react = exports.java = exports.cpp = void 0;
+var Cpp_1 = require("./subjects/Cpp");
+var Java_1 = require("./subjects/Java");
+var React_1 = require("./subjects/React");
+exports.cpp = new Cpp_1.default();
+exports.java = new Java_1.default();
+exports.react = new React_1.default();
+exports.cTeacher = {
+    firstName: 'John',
+    lastName: 'Doe',
+    experienceTeachingC: 10,
+};
+console.log('C++');
+exports.cpp.setTeacher(exports.cTeacher);
+console.log(exports.cpp.getRequirements());
+console.log(exports.cpp.getAvailableTeacher());
+console.log('Java');
+exports.java.setTeacher(exports.cTeacher);
+console.log(exports.java.getRequirements());
+console.log(exports.java.getAvailableTeacher());
+console.log('React');
+exports.react.setTeacher(exports.cTeacher);
+console.log(exports.react.getRequirements());
+console.log(exports.react.getAvailableTeacher());
