@@ -58,8 +58,6 @@ export function isDirector(employee: Director | Teacher): employee is Director {
   return (employee as Director).workDirectorTasks !== undefined;
 }
 
-
-
 export function executeWork(employee: Director | Teacher): string {
   if (isDirector(employee)) {
     return employee.workDirectorTasks();
@@ -71,10 +69,17 @@ export function executeWork(employee: Director | Teacher): string {
 console.log(executeWork(createEmployee(200)));
 console.log(executeWork(createEmployee(1000)));
 
-export function getDisplayName(employee: Director | Teacher): string {
-  if (isDirector(employee)) {
-    return "Director";
+// task 7
+export type Subjects = 'Math' | 'History';
+
+export function teachClass(todayClass: Subjects): string {
+  if (todayClass === 'Math') {
+    return 'Teaching Math';
   } else {
-    return "Teacher";
+    return 'Teaching History';
   }
 }
+
+
+console.log(teachClass('Math'));     
+console.log(teachClass('History'));  
