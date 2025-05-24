@@ -6,9 +6,9 @@ describe('teacher3 object', () => {
     expect(teacher3).toEqual({
   firstName: 'John',
   lastName: 'Doe',
-  fullTimeEmployee: false,
+  fullTimeEmployee: true,
   location: 'London',
-  contract: false,                
+  numberOfReports: 17,                
     });
   });
 
@@ -17,6 +17,6 @@ describe('teacher3 object', () => {
     expect(teacher3).toHaveProperty('lastName');
     expect(teacher3).toHaveProperty('fullTimeEmployee');
     expect(teacher3).toHaveProperty('location');
-    expect(teacher3).toHaveProperty('contract');
+    expect(teacher3).toHaveProperty('numberOfReports');
   });
 });

@@ -4,8 +4,8 @@ exports.teacher3 = void 0;
 exports.teacher3 = {
     firstName: 'John',
     lastName: 'Doe',
-    fullTimeEmployee: false,
+    fullTimeEmployee: true,
     location: 'London',
-    contract: false,
+    numberOfReports: 17,
 };
 console.log(exports.teacher3);

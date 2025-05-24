@@ -7,12 +7,16 @@ readonly firstName: string;
   [key: string]: unknown;                      
 }
 
-export const teacher3: Teacher = {
+export interface Directors extends Teacher {
+  numberOfReports: number;
+}
+
+export const teacher3: Directors = {
   firstName: 'John',
   lastName: 'Doe',
-  fullTimeEmployee: false,
+  fullTimeEmployee: true,
   location: 'London',
-  contract: false,                
+  numberOfReports: 17,                
 };
 
 
